@@ -5,7 +5,7 @@ const cors = require("cors")
 const session = require("express")
 const app = express()
 const db = mongoose.connection
-const itemsController = require("./controllers/reviews.js")
+const itemsController = require("./controllers/items.js")
 require("dotenv").config()
 
 //config
@@ -25,7 +25,7 @@ app.use(cors())
 app.use("/items", itemsController)
 
 //Error
-db.on("error", (error) => console.log(error.message + "did you run MONGOD??");)
+db.on("error", (error) => console.log(error.message + " did you run MONGOD??"));
 db.on("connected", () => console.log("mongo connected: ", MONGODB_URI));
 db.on("disconnected", () => console.log("mongo disconnected"));
 
@@ -34,7 +34,7 @@ app.listen(PORT, () => {
 })
 mongoose.connect(
   MONGODB_URI,
-  {useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify:false},
+  {useNewUrlParser:true, useUnifiedTopology:true},
   () => {
     console.log("connected to mongod");
   }
