@@ -1,6 +1,7 @@
 //dependencies
 const express = require("express")
 const mongoose = require("mongoose")
+const methodOverride = require("mongoose")
 const cors = require("cors")
 const session = require("express")
 const app = express()
