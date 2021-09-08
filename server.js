@@ -7,6 +7,7 @@ const session = require("express")
 const app = express()
 const db = mongoose.connection
 const itemsController = require("./controllers/items.js")
+const userController = require("./controllers/users.js")
 require("dotenv").config()
 
 //config
@@ -24,6 +25,7 @@ app.use(
 app.use(express.json())
 app.use(cors())
 app.use("/items", itemsController)
+app.use("/users", userController)
 
 //Error
 db.on("error", (error) => console.log(error.message + " did you run MONGOD??"));
