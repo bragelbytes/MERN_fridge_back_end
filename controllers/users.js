@@ -16,7 +16,7 @@ users.post("/", (req, res) => {
   })
 })
 
-users.delete("/:id". (req, res) => {
+users.delete("/:id", (req, res) => {
   User.findByIdAndRemove(req.params.id, (error, deletedUser) => {
     res.json(deletedUser)
   })
